@@ -92,12 +92,12 @@ Material:
     - _ShorelineFalloff: 0.502
     - _SpecularHighlights: 1
     - _SurfaceColorBlend: 0.31
-    - _SurfaceOpacity: 0.97
+    - _SurfaceOpacity: 0.985
     - _TessValue: 16
     - _UseSkyboxRelfections: 0
     - _WaterDepth: 1
     - _WaterFalloff: 2
-    - _WaterSmoothness: 1
+    - _WaterSmoothness: 0.92
     - _WaterSpecular: 1
     - _WavesAmount: 8.87
     - _WavesAmplitude: 0.1
@@ -108,6 +108,6 @@ Material:
     - _FoamTint: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 1}
     - _ShallowColor: {r: 0, g: 0.5416665, b: 1, a: 1}
     - _ShalowColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SurfaceColor: {r: 0.29803923, g: 0.4392157, b: 0.5568628, a: 1}
+    - _SurfaceColor: {r: 0.14509805, g: 0.4862745, b: 0.19215687, a: 1}
     - _WaterColor: {r: 0.32515138, g: 0.5365902, b: 0.71323526, a: 0}
     - _WaveSpeed: {r: -0.05, g: 0.05, b: 0, a: 0}
