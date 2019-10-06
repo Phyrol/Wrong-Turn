@@ -10,11 +10,15 @@ public class CompleteCar : MonoBehaviour
     public GameObject ActionText;
     public GameObject ExtraCursor;
     public GameObject subText;
+    public int remainingParts = 0;
+    private bool pressedE = false;
 
     // Update is called once per frame
     void Update()
     {
         TheDistance = PlayerCasting.DistanceFromTarget;
+        
+
     }
 
 
@@ -22,52 +26,59 @@ public class CompleteCar : MonoBehaviour
     {
         if (TheDistance <= 10)
         {
+            ActionDisplay.GetComponent<Text>().text = "[E]";
             ActionDisplay.SetActive(true);
             ActionText.GetComponent<Text>().text = "Fix Car";
             ActionText.SetActive(true);
-            ExtraCursor.SetActive(true);
+            if (pressedE)
+            {
+                subText.SetActive(true);
+            } else
+            {
+                subText.SetActive(false);
+            }
+
         }
         else
         {
             ActionDisplay.SetActive(false);
             ActionText.SetActive(false);
-            ExtraCursor.SetActive(false);
         }
 
-        if ( Input.GetButtonDown("Action") )
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (TheDistance <= 3)
+            subText.SetActive(true);
+            pressedE = true;
+            if (TheDistance <= 10)
             {
-
-                int remainingParts;
                 remainingParts = CountObjectsWithTag("Engine") + CountObjectsWithTag("Gasoline") + CountObjectsWithTag("Battery");
 
                 if (remainingParts > 0)
                 {
-                    subText.GetComponent<Text>().text = "You don't have all of the car parts! Hurray!";
-                    this.GetComponent<BoxCollider>().enabled = false;
+                    subText.GetComponent<Text>().text = "You don't have all of the car parts! Hurry!";
                     ActionDisplay.SetActive(false);
                     ActionText.SetActive(false);
-                    ExtraCursor.SetActive(false);
                 }
 
                 else
                 {
                     subText.GetComponent<Text>().text = "Congratulations! You won!";
-                    this.GetComponent<BoxCollider>().enabled = false;
                     ActionDisplay.SetActive(false);
                     ActionText.SetActive(false);
                     ExtraCursor.SetActive(false);
                 }
-
             }
         }
+        
+
     }
 
     void OnMouseExit()
     {
+        ActionDisplay.SetActive(false);
         ActionText.SetActive(false);
-
+        subText.SetActive(false);
+        pressedE = false;
     }
 
     private int CountObjectsWithTag(string tag)
