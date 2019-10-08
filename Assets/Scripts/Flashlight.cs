@@ -7,9 +7,6 @@ public class Flashlight : MonoBehaviour
     //lightSource
     public Light flashlightSource;
 
-    //audioSource
-    public AudioSource soundFlashlight;
-
     //state of flashlight
     private bool isOn;
 
@@ -18,9 +15,6 @@ public class Flashlight : MonoBehaviour
     {
         //getter for light gameobject
         flashlightSource = this.GetComponent<Light>();
-
-        //getter for audio
-        soundFlashlight = this.GetComponent<AudioSource>();
 
         //condition of the state of the flashlight
         //isOn = flashlightSource.enabled;  

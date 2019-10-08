@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7762127479341818741}
   - component: {fileID: 7762127479341818735}
   - component: {fileID: 7762127479341818734}
-  - component: {fileID: 7762127479341818732}
+  - component: {fileID: 1887529423}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Player
@@ -70,8 +70,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsWalking: 0
   m_WalkSpeed: 5
-  m_RunSpeed: 10
-  m_JumpSpeed: 10
+  m_RunSpeed: 9
+  m_JumpSpeed: 8
   m_StickToGroundForce: 10
   m_GravityMultiplier: 2
   m_MouseLook:
@@ -206,7 +206,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.125
   m_Pitch: 1
   Loop: 0
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerText: {fileID: 0}
---- !u!114 &7762127479341818732
+--- !u!114 &1887529423
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,11 +326,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7762127479341818740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93a0e88be3244ac4baef8b6eee0c351a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e14dd6ff8547d945a7020c041b9e19b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashlightSource: {fileID: 7762127479686378539}
-  soundFlashlight: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: 525183db070611541a7369a24af6cdfb, type: 3}
+  healthText: {fileID: 0}
 --- !u!1 &7762127479686378545
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,10 +341,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7762127479686378550}
   - component: {fileID: 7762127479686378538}
-  - component: {fileID: 7762127479686378549}
   - component: {fileID: 7762127479686378548}
   - component: {fileID: 7762127479686378551}
   - component: {fileID: 7762127479686378539}
+  - component: {fileID: 52496115}
   m_Layer: 0
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -409,14 +409,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &7762127479686378549
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7762127479686378545}
-  m_Enabled: 1
 --- !u!124 &7762127479686378548
 Behaviour:
   m_ObjectHideFlags: 0
@@ -545,3 +537,11 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!81 &52496115
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7762127479686378545}
+  m_Enabled: 1

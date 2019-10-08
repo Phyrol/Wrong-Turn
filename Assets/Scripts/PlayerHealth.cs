@@ -6,44 +6,34 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    //healthbar
-    public Slider HealthBar;
-
     //players current health
-    public float playerHealth;
+    private float playerHealth;
 
     //audio for hurt sound effect
-    public AudioSource hurtSound;
-
-    //audio for dead sound effect
-    public AudioSource deadSound;
+    public AudioClip hurtSound;
+    AudioSource audioSource => GetComponent<AudioSource>();
 
     //boolean condition to check if player is dead
     bool isDead;
 
     //max health
-    public float maxHealth;
+    private float maxHealth;
+
+    public Text healthText;
 
     void Start()
     {
          //max health
-        maxHealth = 20f;
-
-        //audio
-        hurtSound = GetComponent<AudioSource>();
-        deadSound = GetComponent<AudioSource>();
-
-        //players health is set to max health at beginning of game
+        maxHealth = 100f;
         playerHealth = maxHealth;
 
-        //get health percentage value
-        HealthBar.value = CalculateHealth();
+        healthText.text = "Health: " + playerHealth + "/" + maxHealth;
     }
 
     //test to make sure health bar takes damage
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.H))
             takeDamage(3);
     }
 
@@ -51,10 +41,11 @@ public class PlayerHealth : MonoBehaviour
     {
         //if player is dealt damage player will lose health
         playerHealth -= damage;
-        HealthBar.value = CalculateHealth();
-        hurtSound.Play();
-        if (playerHealth <= 0 && !isDead)
+        audioSource.PlayOneShot(hurtSound, 2f);
+        healthText.text = "Health: " + playerHealth + "/" + maxHealth;
+        if(playerHealth <= 0)
         {
+            healthText.text = "Health: 0/" + maxHealth;
             Death();
         }
     }
@@ -66,20 +57,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void Death()
     {
-        isDead = true;
-
-        deadSound.Play();
-
-        playerHealth = 0;
         Debug.Log("You have died.");
-        SceneManager.LoadScene("Terrain");
+        SceneManager.LoadScene("Main");
 
-    }
-
-    public void takeHealing(float healing)
-    {
-        //if player is healed player will gain health
-        playerHealth += healing;
-        HealthBar.value = playerHealth;
     }
 }

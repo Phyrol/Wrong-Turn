@@ -10,7 +10,6 @@ public class BossScream : MonoBehaviour
     void Start()
     {
         myAudio = GetComponent<AudioSource>();
-        myAudio.Play(0);
     }
 
     // Update is called once per frame
