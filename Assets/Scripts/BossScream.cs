@@ -10,16 +10,14 @@ public class BossScream : MonoBehaviour
     void Start()
     {
         myAudio = GetComponent<AudioSource>();
-        
-
+        myAudio.Play(0);
     }
 
     // Update is called once per frame
     void Update()
     {
         count++;
-        print(count);
-        if (count >= 5400)
+        if (count >= 1600)
         {
             myAudio.Play(0);
             count = 0;

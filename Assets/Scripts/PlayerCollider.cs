@@ -7,13 +7,14 @@ public class PlayerCollider : MonoBehaviour
 {
     public Text playerText;
 
-    private int stateCounter;
+    private int stateCounter, partNumber;
     private bool gotEngine, gotGasoline, gotBattery;
 
     // Start is called before the first frame update
     void Start()
     {
         stateCounter = 0;
+        partNumber = 3;
         gotEngine = false;
         gotGasoline = false;
         gotBattery = false;
@@ -27,7 +28,7 @@ public class PlayerCollider : MonoBehaviour
             stateCounter++;
             other.gameObject.SetActive(false);
             gotEngine = true;
-            playerText.text = "Find the remaining "+ (3-stateCounter) +" car parts!";
+            playerText.text = "Find the remaining "+ (partNumber - stateCounter) +" car parts!";
         }
 
         if (other.gameObject.CompareTag("Gasoline"))
@@ -35,7 +36,7 @@ public class PlayerCollider : MonoBehaviour
             stateCounter++;
             other.gameObject.SetActive(false);
             gotGasoline = true;
-            playerText.text = "Find the remaining " + (3 - stateCounter) + " car parts!";
+            playerText.text = "Find the remaining " + (partNumber - stateCounter) + " car parts!";
         }
 
         if (other.gameObject.CompareTag("Battery"))
@@ -43,10 +44,10 @@ public class PlayerCollider : MonoBehaviour
             stateCounter++;
             other.gameObject.SetActive(false);
             gotBattery = true;
-            playerText.text = "Find the remaining " + (3 - stateCounter) + " car parts!";
+            playerText.text = "Find the remaining " + (partNumber - stateCounter) + " car parts!";
         }
 
-        if(stateCounter == 3)
+        if(stateCounter == partNumber)
         {
             playerText.text = "Return to the car and escape! Quickly!";
         }

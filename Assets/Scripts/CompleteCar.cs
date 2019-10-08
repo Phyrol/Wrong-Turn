@@ -10,15 +10,21 @@ public class CompleteCar : MonoBehaviour
     public GameObject ActionText;
     public GameObject ExtraCursor;
     public GameObject subText;
-    public int remainingParts = 0;
+    private int remainingParts = 0;
     private bool pressedE = false;
+
+    [Header("End Game")]
+    public GameObject player;
+    public GameObject endCam;
+    public GameObject bigBoss;
+    public AudioSource ambient;
+    public AudioSource ending;
+    public Canvas playerCanvas;
 
     // Update is called once per frame
     void Update()
     {
         TheDistance = PlayerCasting.DistanceFromTarget;
-        
-
     }
 
 
@@ -66,6 +72,12 @@ public class CompleteCar : MonoBehaviour
                     ActionDisplay.SetActive(false);
                     ActionText.SetActive(false);
                     ExtraCursor.SetActive(false);
+                    endCam.SetActive(true);
+                    Destroy(player);
+                    Destroy(bigBoss);
+                    ambient.Stop();
+                    ending.Play();
+                    playerCanvas.enabled = false;
                 }
             }
         }

@@ -23,7 +23,7 @@ public class Flashlight : MonoBehaviour
         soundFlashlight = this.GetComponent<AudioSource>();
 
         //condition of the state of the flashlight
-        isOn = flashlightSource.enabled;  
+        //isOn = flashlightSource.enabled;  
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class Flashlight : MonoBehaviour
         {
             //boolean state condition
             //checks if flashlight is already on
-            if (isOn == true)
+            /*if (isOn == true)
             {
                 //if it is on then the mouse click will turn it off
                 flashlightSource.enabled = false;
@@ -48,7 +48,7 @@ public class Flashlight : MonoBehaviour
                 flashlightSource.enabled = true;
                 isOn = true;
                 soundFlashlight.Play();
-            }
+            }*/
         }
         
     }
