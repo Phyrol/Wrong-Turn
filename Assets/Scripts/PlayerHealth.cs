@@ -19,40 +19,25 @@ public class PlayerHealth : MonoBehaviour
     //max health
     private float maxHealth;
 
-    public Text healthText;
+    public Slider healthBar;
 
     void Start()
     {
          //max health
         maxHealth = 100f;
-        playerHealth = maxHealth;
-
-        healthText.text = "Health: " + playerHealth + "/" + maxHealth;
-    }
-
-    //test to make sure health bar takes damage
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.H))
-            takeDamage(3);
+        healthBar.value = maxHealth;
     }
 
     public void takeDamage(float damage)
     {
         //if player is dealt damage player will lose health
-        playerHealth -= damage;
+        healthBar.value -= damage;
         audioSource.PlayOneShot(hurtSound, 2f);
-        healthText.text = "Health: " + playerHealth + "/" + maxHealth;
-        if(playerHealth <= 0)
+
+        if(healthBar.value <= 0)
         {
-            healthText.text = "Health: 0/" + maxHealth;
             Death();
         }
-    }
-
-    float CalculateHealth()
-    {
-        return playerHealth / maxHealth;
     }
 
     public void Death()

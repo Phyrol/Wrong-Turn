@@ -18,7 +18,7 @@ public class LittleZombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(player.position, this.transform.position) < 22)
+        if(Vector3.Distance(player.position, this.transform.position) < 26)
         {
             aiScript.enabled = true;
             Vector3 direction = player.position - this.transform.position;

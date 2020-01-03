@@ -6,11 +6,12 @@ public class AIBoss : MonoBehaviour
 {
     public Transform player;
     public Animator anim;
+    Pathfinding.RichAI aiScript;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        aiScript = GetComponent<Pathfinding.RichAI>();
     }
 
     // Update is called once per frame
@@ -25,6 +26,15 @@ public class AIBoss : MonoBehaviour
         {
             anim.SetBool("isAttacking", false);
             anim.SetBool("isWalking", true);
+        }
+
+        if(Vector3.Distance(player.position, this.transform.position) > 12)
+        {
+            aiScript.maxSpeed = 7;
+        }
+        else
+        {
+            aiScript.maxSpeed = 5;
         }
     }
 }
