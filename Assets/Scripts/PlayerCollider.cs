@@ -7,6 +7,10 @@ public class PlayerCollider : MonoBehaviour
 {
     public Text playerText;
 
+    private AudioSource playerAudio => GetComponent<AudioSource>();
+    public AudioClip collectionSound;
+    private float clipVolume = 1f;
+
     private int stateCounter, partNumber;
     private bool gotEngine, gotGasoline, gotBattery;
 
@@ -29,6 +33,7 @@ public class PlayerCollider : MonoBehaviour
             other.gameObject.SetActive(false);
             gotEngine = true;
             playerText.text = "Find the remaining "+ (partNumber - stateCounter) +" car parts!";
+            playerAudio.PlayOneShot(collectionSound, clipVolume);
         }
 
         if (other.gameObject.CompareTag("Gasoline"))
@@ -37,6 +42,7 @@ public class PlayerCollider : MonoBehaviour
             other.gameObject.SetActive(false);
             gotGasoline = true;
             playerText.text = "Find the remaining " + (partNumber - stateCounter) + " car parts!";
+            playerAudio.PlayOneShot(collectionSound, clipVolume);
         }
 
         if (other.gameObject.CompareTag("Battery"))
@@ -45,6 +51,7 @@ public class PlayerCollider : MonoBehaviour
             other.gameObject.SetActive(false);
             gotBattery = true;
             playerText.text = "Find the remaining " + (partNumber - stateCounter) + " car parts!";
+            playerAudio.PlayOneShot(collectionSound, clipVolume);
         }
 
         if(stateCounter == partNumber)

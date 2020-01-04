@@ -16,7 +16,7 @@ public class BossScream : MonoBehaviour
     void Update()
     {
         count++;
-        if (count >= 1600)
+        if (count >= 1000)
         {
             myAudio.Play(0);
             count = 0;

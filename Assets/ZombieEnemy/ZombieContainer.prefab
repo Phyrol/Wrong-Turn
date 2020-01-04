@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 8738375335516810866}
   - component: {fileID: 8738375335516810864}
   - component: {fileID: 8738375335516810766}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ZombieContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
@@ -247,8 +247,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c38b95fb80dccaa44b1e7bb829a0c098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   anim: {fileID: 1786840441122503451}
+  playerAudio: {fileID: 0}
+  zombieAlert1: {fileID: 8300000, guid: c78722d61dce1da42ac42b7ce20d871c, type: 3}
+  zombieAlert2: {fileID: 8300000, guid: 8c5fdbec33297114d8863b8b7c136ec8, type: 3}
+  zombieAlert3: {fileID: 8300000, guid: 42e36fe5070db1a4caa5d7ac1d25b257, type: 3}
 --- !u!1001 &1845793773305484483
 PrefabInstance:
   m_ObjectHideFlags: 0
