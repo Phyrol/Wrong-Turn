@@ -4,47 +4,41 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
-    //lightSource
-    public Light flashlightSource;
+    public Light myLight;
 
-    //state of flashlight
     private bool isOn;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //getter for light gameobject
-        flashlightSource = this.GetComponent<Light>();
+    private AudioSource playerAudio => GetComponent<AudioSource>();
+    public AudioClip flashlightSwitch;
+    private float clipVolume = 1f;
 
-        //condition of the state of the flashlight
-        //isOn = flashlightSource.enabled;  
+    private void Start()
+    {
+        isOn = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        //if right mouse click is pressed the state is changed
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            //boolean state condition
-            //checks if flashlight is already on
-            /*if (isOn == true)
+            if(isOn)
             {
-                //if it is on then the mouse click will turn it off
-                flashlightSource.enabled = false;
+                myLight.enabled = false;
                 isOn = false;
-                soundFlashlight.Play();
+                PlaySound();
             }
             else
             {
-                //boolean state condition
-                //checks if flashlight is off 
-                flashlightSource.enabled = true;
+                myLight.enabled = true;
                 isOn = true;
-                soundFlashlight.Play();
-            }*/
+                PlaySound();
+            }
         }
-        
+    }
+
+    void PlaySound()
+    {
+        playerAudio.PlayOneShot(flashlightSwitch, clipVolume);
     }
 }
 
